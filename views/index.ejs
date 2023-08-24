@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="image_src" href="https://free-host.ranjankashyap.repl.co/logo5.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Share</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+      }
+      :root{
+       --blue: #3b34ff;
+       --gray: #ededed;
+      }
+      body {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 100vh;
+         overflow: hidden;
+      }
+      header {
+        padding: 10px;
+        position: sticky;
+        bottom: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      section{
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        gap: 5px;
+        width: 85%;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      button{
+        outline: none;
+        border: none;
+        border-radius: 2px;
+       padding: 5px;
+       height: 50px;
+       width: 210px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        font-size: 20px;
+        background-color: var(--blue);
+        margin: 10px 0;
+        color: white;
+        cursor: pointer;
+      }
+      label{
+        color: white;
+        font-size: 20px;
+        padding: 5px;
+       height: 40px;
+       width: 200px;
+        background-color: #2ab53f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 10px 0;
+      }
+      input[type="file"]{
+       display: none;
+      }
+      input[type="text"]{
+        outline: none;
+        text-align: center;
+      border: none;   
+      padding: 5px;
+       height: 40px;
+       width: 200px;
+      background-color: var(--gray);
+      margin: 10px auto;
+      font-size: 18px;
+
+                    
+    }   
+    .link{
+      display: flex;
+      width: 100%;
+      
+    }
+    .link span{
+        text-align: center;
+      width: 100%;
+      background-color: var(--gray);
+      padding: 10px;
+      overflow-x: auto;
+    }
+   #copy{
+      padding: 10px;
+      background-color: var(--gray);
+      cursor: pointer;
+      
+    }
+         footer{
+           text-align: center;
+      position:sticky;
+      top: 92%;
+      color: lightgray;
+    }
+
+    .fa{
+      margin-right: 5px;
+    }
+     
+
+.loader-container {
+  display:none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff; /* Change this to the background color of your website */
+  z-index: 9999;
+}
+
+.loader {
+  width: 0%;
+  height: 100%;
+  background-color: red; /* Change this to the color you want for the loader */
+  animation: loader-animation 2s ease-in-out forwards;
+}
+
+@keyframes loader-animation {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+     
+    </style>
+  </head>
+  <body>
+   <div class="loader-container">
+  <div class="loader"></div>
+</div>
+
+    <header>
+      <i
+        style="font-size: 30px; color: #2929fd; font-weight: bold"
+        class="material-icons"
+        >share</i
+      >
+      <h2>File Share</h2>
+    </header>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <section>
+    <div style="display: none;" id="link" class="link">
+     <span id="tobecopied">
+        <% if(locals.filelink !=null){  %>
+            <a href="<%= locals.filelink%>"><%= locals.filelink%></a>
+        <% } %>
+
+     </span>
+     <i id="copy" class="material-icons">content_copy</i>
+    </div>
+    <form action="">
+      <label for="upload">
+        <i class="material-icons">cloud_upload</i> Upload</label>
+      <p id="fname"></p>
+      <input name="file" type="file" id="upload" required>
+      <input name="password" type="text" placeholder="Enter Password" autocomplete="off">
+      <button type="submit">
+      <i style="display:none;" id="loader" class="fa fa-spinner fa-spin"></i>Share
+    </form>
+    </section>
+           <footer>
+             <p style="font-size:10px;">less than 150 kb is supported</p>
+            <p>developed by Ranjan</p>
+          </footer>
+    <script>
+      let loader = document.getElementById('loader')
+      let size ;
+      document.querySelector('form').addEventListener('submit',(e)=>{
+        if(size < 150){
+           alert("File is too Big\nLess than 150 kb is supported")
+          e.preventDefault()
+          return
+        }
+      loader.style.display = 'block'
+ loader22.style.display = "block"
+        
+      })
+      let copy = document.getElementById('copy')
+      let link = document.getElementById('link')
+      let upload = document.getElementById('upload')
+      let tobecopied = document.querySelector('a')
+      let loader22= document.querySelector('.loader-container')
+      let fname = document.getElementById('fname')
+      upload.addEventListener('change',()=>{
+        let details = upload.files[0].name
+      size = upload.files[0].size
+        if(size > 923853600){
+          alert("File is too Big\nLess than 150kb is supported")
+          return
+        }
+        fname.innerHTML = details
+      })
+
+      
+
+      if(tobecopied.innerText.length>0){
+   link.style.display = 'flex'
+      }
+
+    
+      copy.addEventListener('click',()=>{
+      
+      navigator.clipboard.writeText(tobecopied.innerText)
+      copy.innerText = 'check'
+      setTimeout(()=>{
+        copy.innerText = 'content_copy'  
+      },2000)
+      })
+
+      window.addEventListener('beforeunload', function (event) {
+  console.log('Navigating to the next page');
+});
+
+    </script>
+  </body>
+</html>
