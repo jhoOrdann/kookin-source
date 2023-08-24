@@ -2,11 +2,13 @@
 Você pode começar a desenvolver o teu site parecido com o Kookin<br>
 [Assistir no kookin](https://kookin.vercel.app)
 
-+ 1. Configuração:
+## Clonar projeto passo-a-passo
+
++ 1: Iniciando:
 Você terá que criar uma conta no Vercel:<br>
 [Criar conta](https://vercel.com)
 
-+ 2. Importar projetos:
++ 2: Importar projetos:
 Agora você copia o link abaixo:
 ```https://github.com/jhoOrdann/kookin-source```<br>
 Crie um novo projeto no vercel:
@@ -14,11 +16,11 @@ Crie um novo projeto no vercel:
 Ou clique abaixo para importar o projeto completo:<br>
 [Importar projeto](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2FjhoOrdann%2Fkookin-source&showOptionalTeamCreation=false)
 
-+ 3. Configuração no vercel:
++ 3: Configuração no vercel:
 Adicione um domínio após a conclusão.
 Insira seus códiigos e pronto!
 
-+ 4. Como adicionar filmes?
++ 4: Como adicionar filmes?
 Kookin utiliza uma api pública de séries, filmes e animes.
 WAREZCDN que é compatível com Wordpress, embeded etc.<br>
 [Visitar site](https://warezcdn.com/index.php)<br>
@@ -33,6 +35,6 @@ Sim, kookin é para todos utilizarem e criar uma base por cima dos códigos base
 
 ## Mais informações
 ⚠️ **Atenção**: Você não pode compartilhar informações confidenciais de seu projeto. 
-Recomendados você deixar seu projeto no Github privado.
+Recomendados você deixar seu projeto no Github privado.<br>
 ⚠️ **Aviso**: Para utilizar o vercel com este projeto é obrigatoriamente ter uma conta 
 no Github. [Crie uma conta](https://github.com/login) para utilizar este projeto.
